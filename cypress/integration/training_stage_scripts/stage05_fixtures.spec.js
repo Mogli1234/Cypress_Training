@@ -7,9 +7,15 @@ describe('Training Cypress Tests for stage 4',()=>{
         cy.visit('http://trainingqa.avantica.avanticatec.net:3000/login')
     })
 
-    it('Login_Test_Correctly',() =>{
-        cy.get('#email').type('jaime.esquivel@avantica.com')
-        cy.get('#password').type('123456789')
+    before(function(){
+        cy.fixture('loginData').then(function(loginData){
+            this.loginData  = loginData;
+        })
+    })
+
+    it('Login_Test_Correctly',function(){
+        cy.get('#email').type(this.loginData.email)
+        cy.get('#password').type(this.loginData.password)
         cy.get('.Login-bto').click()
         cy.get('#Login_bto').should('be.visible').contains('LOGOUT')
     })
