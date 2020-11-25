@@ -2,7 +2,7 @@
 
 import * as helpF from './Helpers/randomString';
 
-describe('Training Cypress Tests for stage 4', () => {
+describe('Training Cypress Tests for stage 5', () => {
 
     beforeEach( () => {
         cy.visit('http://trainingqa.avantica.avanticatec.net:3000/login')

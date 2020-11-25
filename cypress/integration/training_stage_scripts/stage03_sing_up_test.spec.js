@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-describe('Training Cypress Tests',()=>{
+describe('Training Cypress Tests stage 03',()=>{
 
     it('Sing up Test',() => {
         const imageUpload = '602006.jpg'
