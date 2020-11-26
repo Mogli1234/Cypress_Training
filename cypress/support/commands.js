@@ -27,14 +27,17 @@
 import 'cypress-file-upload';
 import * as helpF from '../integration/training_stage_scripts/Helpers/randomString';
 
-Cypress.Commands.add('Singin_Up',(firstname,lastname,password,profileImage,phone)=> {
-    cy.get('#file').attachFile(profileImage)
-    cy.get('#firstname').type(firstname)
-    cy.get('#lastname').type(lastname)
-    cy.get('#email').type(helpF.getRandomString(8)+'@gmail.com')
-    cy.get('#username').type(helpF.getRandomString(8))
-    cy.get('#phone').type(phone)
-    cy.get('#password').type(password)
-    cy.get('#confirm').type(password)
+Cypress.Commands.add('Singin_Up',()=> {
+    cy.fixture("stageData").as("data")
+    cy.get("@data").then(function(data){
+        cy.get('#file').attachFile(data.imagenPerfil)
+        cy.get('#firstname').type(data.nombre)
+        cy.get('#lastname').type(data.apellido)
+        cy.get('#email').type(helpF.getRandomString(8)+'@gmail.com')
+        cy.get('#username').type(helpF.getRandomString(8))
+        cy.get('#phone').type(data.telefono)
+        cy.get('#password').type(data.password)
+        cy.get('#confirm').type(data.password)
+    })
     cy.get('.SignUp-bto').click()
 })

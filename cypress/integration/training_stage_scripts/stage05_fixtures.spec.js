@@ -6,7 +6,7 @@ describe('Training Cypress Tests for stage 5', () => {
 
     beforeEach( () => {
         cy.visit('http://trainingqa.avantica.avanticatec.net:3000/login')
-        cy.fixture('loginData').as('loginData')
+        cy.fixture('stageData').as('loginData')
     })
 
     it('Login_Test_Correctly', function () {
