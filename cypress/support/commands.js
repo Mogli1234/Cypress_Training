@@ -27,7 +27,7 @@
 import 'cypress-file-upload';
 import * as helpF from '../integration/training_stage_scripts/Helpers/randomString';
 
-Cypress.Commands.add('Singin_Up',()=> {
+Cypress.Commands.add('Sing_Up',()=> {
     cy.fixture("stageData").as("data")
     cy.get("@data").then(function(data){
         cy.get('#file').attachFile(data.imagenPerfil)

@@ -17,9 +17,9 @@ describe('Training Cypress Tests for stage 6', () => {
         cy.get('#Login_bto').should('be.visible').contains('LOGOUT')
     })
 
-    it.only('Sing up Test', () => {
+    it('Sing up Test', () => {
         cy.get('.Signup-bto-page').click()
-        cy.Singin_Up()
+        cy.Sing_Up()
         cy.get('#Login_bto').should('be.visible').contains('LOGOUT')
     })
 });
