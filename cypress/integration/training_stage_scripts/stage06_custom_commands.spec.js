@@ -8,11 +8,18 @@ describe('Training Cypress Tests for stage 6', () => {
         cy.fixture('stageData').as('loginData')
     })
 
-    it('Login_Test_Correctly', function() {
+    it('Login_Test_Correctly', () =>{
         cy.get('@loginData').then( function (user) {
             cy.get('#email').type(user.email)
             cy.get('#password').type(user.password)
         })
+        cy.get('.Login-bto').click()
+        cy.get('#Login_bto').should('be.visible').contains('LOGOUT')
+    })
+
+    it('Login_Test_Correctly', function () {
+        cy.get('#email').type(this.loginData.email)
+        cy.get('#password').type(this.loginData.password)
         cy.get('.Login-bto').click()
         cy.get('#Login_bto').should('be.visible').contains('LOGOUT')
     })
